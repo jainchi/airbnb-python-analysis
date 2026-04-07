@@ -1,3 +1,11 @@
+<p align="center">
+  <img src="images/banner.jpg" width="100%">
+</p>
+
+# Airbnb Data Analysis (EDA)
+
+## Overview
+...
 # Airbnb Data Analysis (EDA)
 
 ## 📊 Overview
