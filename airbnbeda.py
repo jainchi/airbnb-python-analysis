@@ -5,18 +5,18 @@ import seaborn as sns
 
 
 data = pd.read_csv('datasets.csv')
-# print(data.head())
-# data.tail()
-# data.info()
+print(data.head())
+data.tail()
+data.info()
 
 data["baths"] = data["baths"].replace("Not specified",np.nan)
 print(data.head())
 data["baths"] = data["baths"].astype(float)
 data["bedrooms"] = data["bedrooms"].replace("Studio",np.nan)
 data["bedrooms"] = data["bedrooms"].astype(float)
-# data.info()
-# print(data.head(20))
-# print(data.describe())
+data.info()
+print(data.head(20))
+print(data.describe())
 
 # In "bedrooms" column approx 8% of the data is missing and in "others" column approx 0.5% of the data is missing.
 # We can fill the rows with missing values in "bedrooms" columnwith the median value, and fill the missing values in "baths" column with'meanormode' value of that column.
@@ -67,9 +67,9 @@ plt.show()
 plt.figure(figsize=(8, 5))
 plt.title("Locality and Review Dependency")
 plt.scatter(data=data,x='number_of_reviews',y='price')
-plt.show()
+# plt.show()
 
-df = data[data['price'] < 1500]
+df = data[data['price'] < 80000]
 
 plt.figure(figsize=(8, 5))
 plt.title("Locality and Review Dependency")
@@ -95,9 +95,15 @@ Lower-priced neighbourhoods indicate budget-friendly or less popular areas.
 “This insight is derived from grouping listings by neighbourhood and comparing their average prices.”
 
 
->>>>>>Reviews vs Price Relationship
-Listings with a higher number of reviews are generally in the lower to mid-price range.
-Expensive listings tend to have fewer reviews, indicating lower booking frequency.
+### Insight from Reviews vs Price Relationship
+
+Most Airbnb listings fall within the low to medium price range, regardless of review count.
+Listings with a very high number of reviews are generally moderately priced, indicating that affordable or reasonably priced properties tend to-
+receive more bookings and customer engagement over time.
+
+Premium and luxury listings exist in the market, but they usually have fewer reviews, suggesting lower booking frequency or a more niche customer segment.
+Extreme pricing outliers were removed to improve visualization clarity while still preserving high-value listings for realistic market analysis.
+
 
 >>>>>Insight from availability_365 Distribution
 
